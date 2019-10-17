@@ -55,8 +55,22 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     // Update the UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
     
-    // Check if player has won the game
-    nextPlayer();
+    // Check if player has won the game and reset scores + UI
+    if (scores[activePlayer] >= 20)
+    {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+
+    }
+
+    else
+    {
+        // Move onto the next player
+        nextPlayer();
+    }
+    
 });
 
 // Resets scores and makes UI changes when the current player's turn is finished
