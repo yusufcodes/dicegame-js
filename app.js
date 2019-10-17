@@ -33,4 +33,29 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM.style.display = 'block';
     diceDOM.src = 'images/dice-' + dice + '.png';
 
+    // Update the score given that the user did NOT roll a 1
+    if (dice !== 1)
+    {
+        // Add to player score
+        roundScore += dice;
+        document.querySelector('#current-'+activePlayer).textContent = roundScore;
+    }
+
+    else
+    {
+        // Switch the active player to the other player
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+        // Resetting the round scores and the displayed scores for the users
+        roundScore = 0;
+        document.querySelector('#current-0').textContent = 0;
+        document.querySelector('#current-1').textContent = 0;
+
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+
+        document.querySelector('.dice').style.display = 'none'; 
+        
+    }
+
 });
