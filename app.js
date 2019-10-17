@@ -43,19 +43,35 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
     else
     {
-        // Switch the active player to the other player
-        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-
-        // Resetting the round scores and the displayed scores for the users
-        roundScore = 0;
-        document.querySelector('#current-0').textContent = 0;
-        document.querySelector('#current-1').textContent = 0;
-
-        document.querySelector('.player-0-panel').classList.toggle('active');
-        document.querySelector('.player-1-panel').classList.toggle('active');
-
-        document.querySelector('.dice').style.display = 'none'; 
-        
+        nextPlayer();
     }
-
 });
+
+// User clicks hold -> their current score is saved globally and it is the next user's turn
+document.querySelector('.btn-hold').addEventListener('click', function(){
+    // Save the user's current score
+    scores[activePlayer] += roundScore;
+
+    // Update the UI
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+    
+    // Check if player has won the game
+    nextPlayer();
+});
+
+// Resets scores and makes UI changes when the current player's turn is finished
+function nextPlayer()
+{
+    // Switch the active player to the other player
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+
+    // Resetting the round scores and the displayed scores for the users
+    roundScore = 0;
+    document.querySelector('#current-0').textContent = 0;
+    document.querySelector('#current-1').textContent = 0;
+
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    document.querySelector('.dice').style.display = 'none'; 
+}
