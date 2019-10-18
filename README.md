@@ -1,4 +1,6 @@
 # dicegame-js
+This is a Dice Game created in conjunction with [The Complete JavaScript Course 2019: Build Real Projects!](https://www.udemy.com/share/101WfeAEcYd11RRw==/) on Udemy.
+Having completed this section of the course in the past, completing this project has served as a refresher for my basic JavaScript knowledge.
 
 ## Coding Notes
 
@@ -30,7 +32,15 @@ Examples:
 - **Events**: A particular occurrence of something happening on the webpage, which the code is able to recognise and take action from.
 - **Event Listener**: A function performing some action, only when a specific event happens.
 
-### State Variables
+*Creating an event listener on a button, waiting for the user to click:*
+
+```javascript
+document.querySelector('#buttonID').addEventListener('click', function(){
+    // Code here
+});
+```
+
+#### State Variables
 
 Definition: Tells us the state of a system. For example, is a game in a **playing** state or **finished** state?
 
