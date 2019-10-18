@@ -30,3 +30,8 @@ Examples:
 - **Events**: A particular occurrence of something happening on the webpage, which the code is able to recognise and take action from.
 - **Event Listener**: A function performing some action, only when a specific event happens.
 
+### State Variables
+
+Definition: Tells us the state of a system. For example, is a game in a **playing** state or **finished** state?
+
+How to use: Declare a boolean variable and use the value of it to determine what the system should / shouldn't do. 
